@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FREE ZOON - Social Network</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0; padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1877f2;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 12px 8px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px 0;
+            background: #1877f2;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #155db2;
+        }
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="loginForm">
+    <h2>লগইন</h2>
+    <input type="email" id="loginEmail" placeholder="ইমেইল" />
+    <input type="password" id="loginPassword" placeholder="পাসওয়ার্ড" />
+    <button onclick="login()">লগইন</button>
+    <div class="switch" onclick="toggleForms()">নতুন? সাইন আপ করো</div>
+</div>
+
+<div class="container hidden" id="signupForm">
+    <h2>সাইন আপ</h2>
+    <input type="text" id="signupName" placeholder="নাম" />
+    <input type="email" id="signupEmail" placeholder="ইমেইল" />
+    <input type="password" id="signupPassword" placeholder="পাসওয়ার্ড" />
+    <button onclick="signup()">সাইন আপ</button>
+    <div class="switch" onclick="toggleForms()">আগে থেকে ইউজার? লগইন করো</div>
+</div>
+
+<script>
+    function toggleForms() {
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        if (loginForm.classList.contains('hidden')) {
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        } else {
+            loginForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+        }
+    }
+
+    function login() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        alert('লগইন ফাংশন চালানো হবে\nইমেইল: ' + email);
+        // এখানে পরে API কল বা সার্ভার যাচাই করতে হবে
+    }
+
+    function signup() {
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        alert('সাইন আপ ফাংশন চালানো হবে\nনাম: ' + name);
+        // এখানে পরে ডাটাবেসে ডাটা পাঠাতে হবে
+    }
+</script>
+
+</body>
+</html>
